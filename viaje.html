@@ -101,12 +101,16 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:6px 16px 24px
   $('ico-pin').innerHTML = ico('escudo'); $('v-x').innerHTML = ico('cerrar');
 
   // ── Enlace: #carpeta.clave ──
-  // Enlace corto (#carpeta8+clave16, sin punto) o de antes (#carpeta.clave).
-  var crudo = location.hash.slice(1).split('~')[0], corto = crudo.indexOf('.') < 0;
-  var h = corto ? [crudo.slice(0, 8), crudo.slice(8)] : crudo.split('.');
+  // Formatos del enlace: 3 = #clave de 16 letras y números (la carpeta sale de la clave); 2 = #carpeta8+clave16;
+  // 1 = #carpeta.clave (los primeros).
+  var crudo = location.hash.slice(1).split('~')[0];
+  var formato = crudo.indexOf('.') >= 0 ? 1 : /^[a-z2-9]{16}$/.test(crudo) ? 3 : 2, corto = formato === 2;
+  var h = formato === 1 ? crudo.split('.') : formato === 2 ? [crudo.slice(0, 8), crudo.slice(8)] : ['pendiente', crudo];
   var carpeta = (h[0] || '').replace(/[^a-z0-9]/gi, ''), token = h[1] || '';
+  function hex(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
+  function sha(t) { return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)); }
   function problema(t, p, icono) { $('cargando').hidden = true; $('pide-pin').hidden = true; $('problema').hidden = false; $('prob-t').textContent = t; $('prob-p').textContent = p; $('ico-prob').innerHTML = ico(icono || 'alerta'); }
-  if (!carpeta || !(corto ? /^[a-z0-9]{8}$/.test(carpeta) && /^[A-Za-z0-9_-]{16}$/.test(token) : /^(?:[A-Za-z0-9_-]{22}|[A-Za-z0-9_-]{43})$/.test(token)) || !window.crypto || !crypto.subtle) { problema('Enlace incompleto', 'Escríbele a tu asesor de Go Travel para recibir de nuevo el enlace de tus documentos.'); return; }
+  if (!carpeta || !(formato === 3 || (corto ? /^[a-z0-9]{8}$/.test(carpeta) && /^[A-Za-z0-9_-]{16}$/.test(token) : /^(?:[A-Za-z0-9_-]{22}|[A-Za-z0-9_-]{43})$/.test(token))) || !window.crypto || !crypto.subtle) { problema('Enlace incompleto', 'Escríbele a tu asesor de Go Travel para recibir de nuevo el enlace de tus documentos.'); return; }
   if ('serviceWorker' in navigator && window.isSecureContext && /^https:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(function () {});
 
   function b64u(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
@@ -118,13 +122,21 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:6px 16px 24px
   }
   function claveDe(pin, sal) {
     // En el enlace corto la clave AES es el SHA-256 de la clave del enlace (96 bits al azar).
-    if (!pin) return (corto ? crypto.subtle.digest('SHA-256', new TextEncoder().encode(token)) : Promise.resolve(b64u(token))).then(function (raw) { return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']); });
+    if (!pin) return (formato === 3 ? sha('clave:' + token) : corto ? sha(token) : Promise.resolve(b64u(token))).then(function (raw) { return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']); });
     return crypto.subtle.importKey('raw', new TextEncoder().encode(token + ':' + pin), 'PBKDF2', false, ['deriveKey']).then(function (k) {
       return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: sal, iterations: 250000, hash: 'SHA-256' }, k, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
     });
   }
   var CAB = null;
-  traer('v/' + carpeta + '/c.bin').then(function (b) {
+  // Recién publicada, GitHub tarda unos segundos en ponerla en línea: si todavía no está, se espera y se reintenta.
+  function traerIndice(n) {
+    return traer('v/' + carpeta + '/c.bin').catch(function (err) {
+      if (String(err && err.message) !== '404' || n >= 12) throw err;
+      $('cargando').querySelector('h3').textContent = 'Estamos preparando tus documentos…'; $('cargando').querySelector('p').textContent = 'Tu asesor los acaba de publicar. Esto toma unos segundos.';
+      return new Promise(function (ok) { setTimeout(ok, 5000); }).then(function () { return traerIndice(n + 1); });
+    });
+  }
+  (formato === 3 ? sha('carpeta:' + token).then(function (d) { carpeta = hex(d).slice(0, 12); }) : Promise.resolve()).then(function () { return traerIndice(0); }).then(function (b) {
     CAB = b;
     if (b[0] === 2) { $('cargando').hidden = true; $('pide-pin').hidden = false; $('pin').focus(); return; }
     return abrir('').catch(function () { problema('No pudimos abrir tus documentos', 'El enlace parece incompleto. Ábrelo de nuevo desde el mensaje de tu asesor de Go Travel, sin cambiarle nada.'); });
