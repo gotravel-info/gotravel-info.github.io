@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#1991D0"><title>Check-in · Go Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;800&display=swap">
+<style>
+:root{--azul:#1991D0;--accion:#136CD6;--accion-h:#0F58B0;--tinta:#1F2A33;--suave:#555656;--muted:#6B6E70;--niebla:#EAF5FC;--linea:#D9DBDB;--ok:#1E7A46;--ok-s:#E7F5EC}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Jost,system-ui,sans-serif;color:var(--tinta);background:var(--niebla);min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+header{background:var(--azul);padding:22px 16px 64px;text-align:center}header img{width:170px;height:auto}
+main{flex:1;padding:0 16px 32px}
+.card{max-width:460px;margin:-44px auto 0;background:#fff;border-radius:24px;padding:26px 22px 24px;box-shadow:0 10px 30px rgba(15,60,100,.12)}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accion)}
+h1{margin:6px 0 2px;font-size:30px;line-height:1.1;font-weight:800}
+.vuelo{margin:0 0 20px;color:var(--suave);font-size:16px}
+.dato{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:0 0 10px;padding:14px 16px;border:1px solid var(--linea);border-radius:16px;background:#fff;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.dato small{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dato b{display:block;font-size:26px;font-weight:700;letter-spacing:.06em;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;word-break:break-all}
+.dato span.c{flex:none;font-size:14px;font-weight:600;color:var(--accion)}
+.dato.ok{border-color:var(--ok);background:var(--ok-s)}.dato.ok span.c{color:var(--ok)}
+.ir{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:18px;min-height:64px;padding:14px 18px;border:0;border-radius:18px;background:var(--accion);color:#fff;font:inherit;font-size:20px;font-weight:700;cursor:pointer;text-decoration:none}
+.ir:hover{background:var(--accion-h)}.ir svg{width:24px;height:24px;flex:none}
+.ayuda{margin:14px 0 0;font-size:15px;line-height:1.45;color:var(--suave);text-align:center}
+.estado{min-height:22px;margin:12px 0 0;text-align:center;font-weight:600;color:var(--ok)}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:0 16px 22px}footer a{color:var(--accion);text-decoration:none}
+[hidden]{display:none!important}
+</style></head><body>
+<header><img src="data:image/png;base64,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" alt="Go Travel" width="170" height="41"></header>
+<main><div class="card" id="card">
+  <p class="eyebrow">Check-in</p><h1 id="aero">Tu vuelo</h1><p class="vuelo" id="vuelo"></p>
+  <button type="button" class="dato" id="d-r"><span><small>Récord de la aerolínea</small><b id="r"></b></span><span class="c">Copiar</span></button>
+  <button type="button" class="dato" id="d-p"><span><small>Apellido</small><b id="p"></b></span><span class="c">Copiar</span></button>
+  <a class="ir" id="ir" href="#" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><span id="ir-t">Copiar récord e ir a la aerolínea</span></a>
+  <p class="estado" id="estado" role="status"></p>
+  <p class="ayuda" id="ayuda"></p>
+</div></main>
+<footer>GO TRAVEL · Vacations &amp; Business · <a href="https://www.gotravel.com.co" rel="noopener">www.gotravel.com.co</a></footer>
+<script>
+(function () {
+  var AEROLINEAS = {"AV":{"n":"Avianca","u":"https://checkinnew.avianca.com/Check-In?lang=Es"},"LA":{"n":"LATAM","u":"https://www.latamairlines.com/co/es/centro-ayuda/preguntas/check-in"},"CM":{"n":"Copa","u":"https://checkin.copaair.com/"},"P5":{"n":"Wingo","u":"https://www.wingo.com/check-in"},"JA":{"n":"JetSMART","u":"https://jetsmart.com/co/es/minisitios/checkin/home"},"9R":{"n":"Satena","u":"https://www.satena.com/es/web-check-in"},"VE":{"n":"Clic","u":"https://clicair.co/web-check-in"},"AA":{"n":"American","u":"https://www.aa.com/reservation/flightCheckInViewReservationsAccess.do"},"UA":{"n":"United","u":"https://www.united.com/"},"DL":{"n":"Delta","u":"https://www.delta.com/PCCOciWeb/findBy.action"},"B6":{"n":"JetBlue","u":"https://mobilecheckin.jetblue.com/"},"AC":{"n":"Air Canada","u":"https://www.aircanada.com/co/es/aco/home/fly/check-in.html"},"AM":{"n":"Aeroméxico","u":"https://aeromexico.com/es-mx/check-in"},"VB":{"n":"Viva Aerobus","u":"https://www.vivaaerobus.com/es-mx/check-in"},"DM":{"n":"Arajet","u":"https://www.arajet.com/es/check-in"},"H2":{"n":"Sky","u":"https://www.skyairline.com/es/colombia/check-in"},"AR":{"n":"Aerolíneas Argentinas","u":"https://www.aerolineas.com.ar/check-in"},"IB":{"n":"Iberia","u":"https://www.iberia.com/us/checkin-information/"},"UX":{"n":"Air Europa","u":"https://www.aireuropa.com/us/en/mytrips/checkin"},"AF":{"n":"Air France","u":"https://wwws.airfrance.com.co/check-in"},"KL":{"n":"KLM","u":"https://klm.com/ams/checkin/web/kl/us/en"},"LH":{"n":"Lufthansa","u":"https://www.lufthansa.com/co/en/online-check-in-info"},"BA":{"n":"British Airways","u":"https://www.britishairways.com/travel/olcilandingpageauthreq/public/es_co"},"TP":{"n":"TAP","u":"https://www.flytap.com/en-us/check-in/online-check-in"},"TK":{"n":"Turkish","u":"https://www.turkishairlines.com/en-int/flights/manage-booking/"},"EK":{"n":"Emirates","u":"https://www.emirates.com/co/spanish/manage-booking/online-check-in/"},"QR":{"n":"Qatar Airways","u":"https://www.qatarairways.com/en-us/services-checking-in.html"}};
+  var q = new URLSearchParams(location.hash.slice(1));
+  var limpio = function (v, n) { return String(v || '').replace(/[^\w\s\-ÁÉÍÓÚÑáéíóúñ]/g, '').trim().slice(0, n); };
+  var a = AEROLINEAS[String(q.get('c') || '').toUpperCase()];
+  var r = limpio(q.get('r'), 12).toUpperCase(), p = limpio(q.get('p'), 60).toUpperCase(), v = limpio(q.get('v'), 12), f = q.get('f') || '';
+  var $ = function (id) { return document.getElementById(id); };
+  if (!a || !r) {
+    $('aero').textContent = 'Enlace incompleto';
+    $('vuelo').textContent = 'Escríbele a tu asesor de Go Travel para recibir el enlace de check-in de nuevo.';
+    ['d-r', 'd-p', 'ir'].forEach(function (id) { $(id).hidden = true; });
+    return;
+  }
+  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f);
+  $('aero').textContent = a.n;
+  $('vuelo').textContent = [v ? 'Vuelo ' + v : '', m ? (+m[3]) + ' ' + MESES[m[2] - 1] + ' ' + m[1] : ''].filter(Boolean).join(' · ');
+  $('r').textContent = r; $('p').textContent = p; $('d-p').hidden = !p;
+  $('ir').href = a.u; $('ir-t').textContent = 'Copiar récord e ir a ' + a.n;
+  $('ayuda').textContent = 'En la página de ' + a.n + ' pega el récord' + (p ? ' y escribe el apellido ' + p : '') + '.';
+  document.title = 'Check-in ' + a.n + ' · Go Travel';
+  function copiar(t) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).then(function () { return true; }, function () { return viejo(t); });
+    return Promise.resolve(viejo(t));
+  }
+  function viejo(t) { var x = document.createElement('textarea'); x.value = t; x.setAttribute('readonly', ''); x.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(x); x.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} x.remove(); return ok; }
+  function marcar(id, ok) { var b = $(id); b.classList.toggle('ok', ok); b.querySelector('.c').textContent = ok ? 'Copiado ✓' : 'Copiar'; }
+  $('d-r').addEventListener('click', function () { copiar(r).then(function (ok) { marcar('d-r', ok); marcar('d-p', false); }); });
+  $('d-p').addEventListener('click', function () { copiar(p).then(function (ok) { marcar('d-p', ok); marcar('d-r', false); }); });
+  // Un solo toque: copia el récord y abre la aerolínea en esta misma pestaña.
+  $('ir').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    copiar(r).then(function (ok) {
+      marcar('d-r', ok);
+      $('estado').textContent = ok ? 'Récord copiado. Abriendo ' + a.n + '…' : 'Abriendo ' + a.n + '…';
+      setTimeout(function () { location.href = a.u; }, ok ? 650 : 200);
+    });
+  });
+})();
+</script>
+</body></html>

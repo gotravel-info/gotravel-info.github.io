@@ -1,0 +1,41 @@
+name: Limpieza de documentos (60 días)
+
+# Todos los días borra los itinerarios y las carpetas de «Documentos de viaje»
+# que llevan más de 60 días sin cambios. Se puede correr a mano desde la pestaña Actions.
+on:
+  schedule:
+    - cron: "17 8 * * *" # 3:17 a. m. hora de Colombia
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: "Solo mostrar qué se borraría, sin borrar nada"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: limpieza
+  cancel-in-progress: false
+
+jobs:
+  limpiar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Borrar documentos vencidos
+        id: limpieza
+        env:
+          DIAS: "60"
+          SIMULAR: ${{ github.event.inputs.simular || 'false' }}
+        run: bash .github/limpieza.sh
+      # Si se borró algo, pide que GitHub Pages se actualice (por si no lo hace solo).
+      - name: Actualizar el sitio
+        if: github.event.inputs.simular != 'true' && steps.limpieza.outputs.borrados != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true
