@@ -101,10 +101,12 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:6px 16px 24px
   $('ico-pin').innerHTML = ico('escudo'); $('v-x').innerHTML = ico('cerrar');
 
   // ── Enlace: #carpeta.clave ──
-  var h = location.hash.slice(1).split('.');
+  // Enlace corto (#carpeta8+clave16, sin punto) o de antes (#carpeta.clave).
+  var crudo = location.hash.slice(1).split('~')[0], corto = crudo.indexOf('.') < 0;
+  var h = corto ? [crudo.slice(0, 8), crudo.slice(8)] : crudo.split('.');
   var carpeta = (h[0] || '').replace(/[^a-z0-9]/gi, ''), token = h[1] || '';
   function problema(t, p, icono) { $('cargando').hidden = true; $('pide-pin').hidden = true; $('problema').hidden = false; $('prob-t').textContent = t; $('prob-p').textContent = p; $('ico-prob').innerHTML = ico(icono || 'alerta'); }
-  if (!carpeta || !/^(?:[A-Za-z0-9_-]{22}|[A-Za-z0-9_-]{43})$/.test(token) || !window.crypto || !crypto.subtle) { problema('Enlace incompleto', 'Escríbele a tu asesor de Go Travel para recibir de nuevo el enlace de tus documentos.'); return; }
+  if (!carpeta || !(corto ? /^[a-z0-9]{8}$/.test(carpeta) && /^[A-Za-z0-9_-]{16}$/.test(token) : /^(?:[A-Za-z0-9_-]{22}|[A-Za-z0-9_-]{43})$/.test(token)) || !window.crypto || !crypto.subtle) { problema('Enlace incompleto', 'Escríbele a tu asesor de Go Travel para recibir de nuevo el enlace de tus documentos.'); return; }
   if ('serviceWorker' in navigator && window.isSecureContext && /^https:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(function () {});
 
   function b64u(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
@@ -115,8 +117,8 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:6px 16px 24px
     return crypto.subtle.decrypt({ name: 'AES-GCM', iv: datos.slice(1, 13), additionalData: new TextEncoder().encode(aad) }, CLAVE, datos.slice(13)).then(function (b) { return new Uint8Array(b); });
   }
   function claveDe(pin, sal) {
-    var raw = b64u(token);
-    if (!pin) return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    // En el enlace corto la clave AES es el SHA-256 de la clave del enlace (96 bits al azar).
+    if (!pin) return (corto ? crypto.subtle.digest('SHA-256', new TextEncoder().encode(token)) : Promise.resolve(b64u(token))).then(function (raw) { return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']); });
     return crypto.subtle.importKey('raw', new TextEncoder().encode(token + ':' + pin), 'PBKDF2', false, ['deriveKey']).then(function (k) {
       return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: sal, iterations: 250000, hash: 'SHA-256' }, k, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
     });

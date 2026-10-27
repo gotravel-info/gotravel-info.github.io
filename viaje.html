@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#1991D0"><title>Documentos de viaje · Go Travel</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Go Travel"><meta property="og:title" content="Tus documentos de viaje"><meta property="og:description" content="Abre aquí tus documentos de viaje: tiquetes, vouchers, itinerario y asistencia, en un solo lugar."><meta property="og:image" content="https://gotravel-info.github.io/compartir.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;800&display=swap">
+<style>
+:root{--azul:#1991D0;--accion:#136CD6;--accion-h:#0F58B0;--tinta:#1F2A33;--suave:#555656;--muted:#6B6E70;--niebla:#EAF5FC;--nube:#F4F6F7;--linea:#D9DBDB;--ok:#1E7A46;--ok-s:#E7F5EC;--mal:#C2352B;--mal-s:#FDECEA}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Jost,system-ui,sans-serif;color:var(--tinta);background:var(--nube);min-height:100vh;min-height:100svh;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit}
+.ico{width:22px;height:22px;flex:none}
+[hidden]{display:none!important}
+/* Cabecera */
+.cab{position:relative;overflow:hidden;background:var(--azul);color:#fff;padding:20px 16px 76px}
+.cab .orb{position:absolute;width:560px;right:-180px;top:-120px;fill:none;stroke:rgba(255,255,255,.16);stroke-width:1.4;pointer-events:none}
+.cab-in{position:relative;max-width:720px;margin:0 auto}
+.cab img.logo{width:150px;height:auto;display:block;margin-bottom:26px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.cab .eyebrow{color:#fff;opacity:.92}
+.cab h1{overflow-wrap:anywhere;margin:6px 0 6px;font-size:clamp(30px,7vw,44px);line-height:1.05;font-weight:800}
+.cab .sub{margin:0;font-size:18px;font-weight:500}
+.cab .cod{display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px;font-weight:600;letter-spacing:.04em}
+main{max-width:720px;margin:-52px auto 0;padding:0 16px 32px;position:relative}
+.pax{background:#fff;border-radius:20px;padding:16px 18px;box-shadow:0 10px 30px rgba(15,60,100,.10);display:flex;gap:12px;align-items:center}
+.pax .ico{color:var(--accion)}.pax small{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.pax>div{min-width:0}.pax b{font-size:17px;overflow-wrap:anywhere}
+h2{margin:26px 4px 10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tarjeta{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin:0 0 10px;cursor:pointer}
+.tarjeta:hover{border-color:var(--accion)}
+.t-ico{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--niebla);color:var(--accion)}.t-ico .ico{width:26px;height:26px}
+.t-txt{flex:1;min-width:0;overflow-wrap:anywhere}.t-txt b{display:block;font-size:18px;line-height:1.2}.t-txt .t-sub{display:block;color:var(--suave);font-size:15px;margin-top:2px}
+.t-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;min-width:0}.t-chips i{display:block;max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;font-style:normal;font-size:13px;line-height:1.3;font-weight:600;padding:4px 10px;border-radius:12px;background:var(--nube);color:var(--tinta)}
+.t-ir{flex:none;color:var(--muted)}
+.ayuda{margin:22px 4px 0;color:var(--suave);font-size:15px;line-height:1.5;text-align:center}
+.asesor{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;margin-top:18px;border-radius:18px;background:var(--accion);color:#fff;font-size:18px;font-weight:700;text-decoration:none}
+.asesor:hover{background:var(--accion-h)}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:6px 16px 24px}footer a{color:var(--accion);text-decoration:none}
+/* Estados */
+.aviso{max-width:460px;margin:0 auto;background:#fff;border-radius:22px;padding:26px 22px;text-align:center;box-shadow:0 10px 30px rgba(15,60,100,.10)}
+.aviso h3{margin:10px 0 6px;font-size:22px}.aviso p{margin:0;color:var(--suave);line-height:1.5}
+.aviso .ico{width:40px;height:40px;color:var(--accion)}
+.giro{width:34px;height:34px;border-radius:50%;border:3px solid var(--niebla);border-top-color:var(--accion);animation:g 1s linear infinite;margin:0 auto}@keyframes g{to{transform:rotate(360deg)}}
+.pin{display:flex;gap:10px;justify-content:center;margin:18px 0 6px}
+.pin input{width:100%;max-width:220px;text-align:center;font-size:32px;letter-spacing:.5em;padding:12px 8px 12px 20px;border:1.5px solid var(--linea);border-radius:16px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.pin input:focus{outline:3px solid var(--niebla);border-color:var(--accion)}
+.b-pri{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 26px;border:0;border-radius:16px;background:var(--accion);color:#fff;font-size:18px;font-weight:700;cursor:pointer;text-decoration:none}
+.b-pri:hover{background:var(--accion-h)}
+.b-sec{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border:1.5px solid var(--linea);border-radius:14px;background:#fff;color:var(--accion);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none}
+.error{color:var(--mal);font-weight:600;min-height:22px;margin:8px 0 0}
+/* Ventana del documento */
+.vent{position:fixed;inset:0;z-index:20;background:var(--nube);display:flex;flex-direction:column}
+.v-bar{display:flex;align-items:center;gap:10px;padding:10px 12px;padding-top:max(10px,env(safe-area-inset-top));background:#fff;border-bottom:1px solid var(--linea)}
+.v-bar b{flex:1;min-width:0;font-size:17px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.v-x{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:12px;background:var(--nube);cursor:pointer}
+.v-cuerpo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:16px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.v-in{max-width:720px;margin:0 auto}
+.res{background:#fff;border-radius:20px;padding:18px;margin-bottom:14px}
+.res h3{margin:0 0 12px;font-size:20px;overflow-wrap:anywhere}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:0}
+.datos div{min-width:0}.datos dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.datos dd{margin:2px 0 0;font-size:17px;font-weight:500;word-break:break-word}
+.tels{display:grid;gap:8px;margin-top:14px}
+.tel{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 10px;padding:12px 14px;border-radius:14px;background:var(--niebla);text-decoration:none;color:var(--tinta)}
+.tel span{font-size:15px;min-width:0}.tel b{font-size:17px;color:var(--accion);white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.cob{width:100%;border-collapse:collapse;margin-top:14px;font-size:15px}.cob td{overflow-wrap:anywhere;padding:9px 0;border-top:1px solid var(--linea);vertical-align:top}.cob td:last-child{text-align:right;font-weight:600;padding-left:12px}
+.instr{margin:14px 0 0;color:var(--suave);line-height:1.5;white-space:pre-line}
+.cks{display:grid;gap:8px;margin-top:14px}
+.qr{background:#fff;border-radius:20px;padding:20px;margin-bottom:14px;text-align:center}
+.qr svg{width:min(78vw,320px);height:auto;display:block;margin:0 auto}
+.qr p{margin:12px 0 0;color:var(--suave)}
+.doc-acc{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
+.hoja{display:block;width:100%;height:auto;background:#fff;border-radius:10px;box-shadow:0 4px 14px rgba(15,60,100,.10);margin:0 0 12px}
+.marco{width:100%;height:78vh;border:0;border-radius:16px;background:#fff;display:block}
+@media (max-width:420px){.datos{grid-template-columns:1fr}.tarjeta{gap:12px;padding:14px}.t-ico{width:42px;height:42px;border-radius:13px}.t-ico .ico{width:22px;height:22px}.t-txt b{font-size:17px}}
+</style></head><body>
+<header class="cab"><svg class="orb" viewBox="0 0 600 400" aria-hidden="true"><ellipse cx="300" cy="200" rx="290" ry="120" transform="rotate(-18 300 200)"/><ellipse cx="300" cy="200" rx="250" ry="150" transform="rotate(14 300 200)"/></svg>
+<div class="cab-in"><img class="logo" src="data:image/png;base64,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" alt="Go Travel" width="150" height="36"><p class="eyebrow">Documentos de viaje</p><h1 id="titulo">Tu viaje</h1><p class="sub" id="fechas"></p><span class="cod" id="cod" hidden></span></div></header>
+<main id="main">
+  <div class="aviso" id="cargando"><div class="giro" aria-hidden="true"></div><h3>Abriendo tus documentos…</h3><p>Un momento, por favor.</p></div>
+  <form class="aviso" id="pide-pin" hidden><span id="ico-pin"></span><h3>Escribe tu PIN</h3><p>Tu asesor de Go Travel te lo envió aparte. Son 4 números.</p><div class="pin"><input id="pin" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="one-time-code" aria-label="PIN de 4 números"></div><p class="error" id="pin-error" role="alert"></p><button class="b-pri" type="submit">Abrir mis documentos</button></form>
+  <div class="aviso" id="problema" hidden><span id="ico-prob"></span><h3 id="prob-t"></h3><p id="prob-p"></p></div>
+  <div id="contenido" hidden></div>
+</main>
+<footer>GO TRAVEL · Vacations &amp; Business · <a href="https://www.gotravel.com.co" rel="noopener">www.gotravel.com.co</a></footer>
+<div class="vent" id="vent" hidden role="dialog" aria-modal="true" aria-labelledby="v-t"><div class="v-bar"><button type="button" class="v-x" id="v-x" aria-label="Cerrar"></button><b id="v-t"></b></div><div class="v-cuerpo" id="v-cuerpo"><div class="v-in" id="v-in"></div></div></div>
+<script>
+(function () {
+  'use strict';
+  var IC = {"avion":"<path d=\"M12 2.6c.85 0 1.45 1 1.45 2.2v4.5l6.8 4.1v1.9l-6.8-2.1v4.5l2.1 1.6v1.6L12 20.1l-3.55.8v-1.6l2.1-1.6v-4.5l-6.8 2.1v-1.9l6.8-4.1V4.8c0-1.2.6-2.2 1.45-2.2z\" transform=\"rotate(45 12 12)\"/>","check-circulo":"<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M8 12.3l2.7 2.7L16.2 9.5\"/>","ubicacion":"<path d=\"M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/>","hotel":"<path d=\"M3 19V6\"/><path d=\"M3 15h18v4\"/><path d=\"M21 15v-3a3 3 0 0 0-3-3h-7v6\"/><circle cx=\"7\" cy=\"11.5\" r=\"1.8\"/>","traslado":"<path d=\"M5 16.5H4a1 1 0 0 1-1-1v-3.2l1.8-4.7A2 2 0 0 1 6.7 6.3h10.6a2 2 0 0 1 1.9 1.3l1.8 4.7v3.2a1 1 0 0 1-1 1h-1\"/><path d=\"M3.5 12h17\"/><circle cx=\"7.5\" cy=\"16.5\" r=\"1.8\"/><circle cx=\"16.5\" cy=\"16.5\" r=\"1.8\"/><path d=\"M9.3 16.5h5.4\"/>","escudo":"<path d=\"M12 3l7.5 3v5.5c0 4.6-3.2 8.1-7.5 9.5-4.3-1.4-7.5-4.9-7.5-9.5V6z\"/><path d=\"M8.8 12l2.2 2.2 4.2-4.4\"/>","estrella":"<path d=\"M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z\"/>","documento":"<path d=\"M14 3.5H7a1.5 1.5 0 0 0-1.5 1.5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8z\"/><path d=\"M14 3.5V8h4.5M9 12.5h6M9 16h6\"/>","pasajeros":"<circle cx=\"9\" cy=\"8.2\" r=\"3.2\"/><path d=\"M2.8 19.5a6.2 6.2 0 0 1 12.4 0\"/><path d=\"M15.2 5.3a3.2 3.2 0 0 1 0 5.8\"/><path d=\"M17.6 13.6a6.2 6.2 0 0 1 3.6 5.9\"/>","chevron-derecha":"<path d=\"M9.5 5.5L16 12l-6.5 6.5\"/>","chat":"<path d=\"M20.5 11.5a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.5-4.4A8.5 8.5 0 1 1 20.5 11.5z\"/><path d=\"M8.5 10.5h7M8.5 13.5h4.5\"/>","cerrar":"<path d=\"M6 6l12 12M18 6L6 18\"/>","descargar":"<path d=\"M12 4v11M7 10.5l5 5 5-5\"/><path d=\"M4.5 19.5h15\"/>","compartir":"<circle cx=\"18\" cy=\"5.5\" r=\"2.5\"/><circle cx=\"6\" cy=\"12\" r=\"2.5\"/><circle cx=\"18\" cy=\"18.5\" r=\"2.5\"/><path d=\"M8.2 10.8l7.6-4.1M8.2 13.2l7.6 4.1\"/>","telefono":"<path d=\"M7.4 3.5H5.2a1.7 1.7 0 0 0-1.7 1.9 16 16 0 0 0 15.1 15.1 1.7 1.7 0 0 0 1.9-1.7v-2.2a1 1 0 0 0-.8-1l-3.2-.8a1 1 0 0 0-1 .3l-1.5 1.5a12 12 0 0 1-5.6-5.6l1.5-1.5a1 1 0 0 0 .3-1l-.8-3.2a1 1 0 0 0-1-.8z\"/>","reloj":"<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7.5V12l3 2\"/>","alerta":"<path d=\"M10.3 4.4L2.9 17.5A2 2 0 0 0 4.6 20.5h14.8a2 2 0 0 0 1.7-3L13.7 4.4a2 2 0 0 0-3.4 0z\"/><path d=\"M12 9.5v4M12 17h.01\"/>"};
+  function ico(n) { return '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || '') + '</svg>'; }
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  function fecha(f) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f || ''); return m ? (+m[3]) + ' de ' + MESES[m[2] - 1] + ' de ' + m[1] : (f || ''); }
+  function rango(a, b) {
+    var x = /^(\d{4})-(\d{2})-(\d{2})$/.exec(a || ''), y = /^(\d{4})-(\d{2})-(\d{2})$/.exec(b || '');
+    if (!x || !y) return [fecha(a), fecha(b)].filter(Boolean).join(' al ');
+    if (x[1] === y[1] && x[2] === y[2]) return (+x[3]) + ' al ' + fecha(b);
+    if (x[1] === y[1]) return (+x[3]) + ' de ' + MESES[x[2] - 1] + ' al ' + fecha(b);
+    return fecha(a) + ' al ' + fecha(b);
+  }
+  var CATS = [['vuelos', 'Vuelos', 'avion'], ['reserva', 'Tu reserva', 'check-circulo'], ['itinerario', 'Itinerario', 'ubicacion'], ['hoteles', 'Hoteles', 'hotel'], ['traslados', 'Traslados', 'traslado'], ['asistencia', 'Asistencia médica', 'escudo'], ['entradas', 'Entradas y tours', 'estrella'], ['otros', 'Otros documentos', 'documento']];
+  var CAT = {}; CATS.forEach(function (c) { CAT[c[0]] = c; });
+  $('ico-pin').innerHTML = ico('escudo'); $('v-x').innerHTML = ico('cerrar');
+
+  // ── Enlace: #carpeta.clave ──
+  // Enlace corto (#carpeta8+clave16, sin punto) o de antes (#carpeta.clave).
+  var crudo = location.hash.slice(1).split('~')[0], corto = crudo.indexOf('.') < 0;
+  var h = corto ? [crudo.slice(0, 8), crudo.slice(8)] : crudo.split('.');
+  var carpeta = (h[0] || '').replace(/[^a-z0-9]/gi, ''), token = h[1] || '';
+  function problema(t, p, icono) { $('cargando').hidden = true; $('pide-pin').hidden = true; $('problema').hidden = false; $('prob-t').textContent = t; $('prob-p').textContent = p; $('ico-prob').innerHTML = ico(icono || 'alerta'); }
+  if (!carpeta || !(corto ? /^[a-z0-9]{8}$/.test(carpeta) && /^[A-Za-z0-9_-]{16}$/.test(token) : /^(?:[A-Za-z0-9_-]{22}|[A-Za-z0-9_-]{43})$/.test(token)) || !window.crypto || !crypto.subtle) { problema('Enlace incompleto', 'Escríbele a tu asesor de Go Travel para recibir de nuevo el enlace de tus documentos.'); return; }
+  if ('serviceWorker' in navigator && window.isSecureContext && /^https:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(function () {});
+
+  function b64u(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  var CLAVE = null, M = null;
+  function traer(ruta) { return fetch(ruta, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); }).then(function (b) { return new Uint8Array(b); }); }
+  function descifrar(datos, aad) {
+    if (datos[0] !== 1) return Promise.reject(new Error('formato'));
+    return crypto.subtle.decrypt({ name: 'AES-GCM', iv: datos.slice(1, 13), additionalData: new TextEncoder().encode(aad) }, CLAVE, datos.slice(13)).then(function (b) { return new Uint8Array(b); });
+  }
+  function claveDe(pin, sal) {
+    // En el enlace corto la clave AES es el SHA-256 de la clave del enlace (96 bits al azar).
+    if (!pin) return (corto ? crypto.subtle.digest('SHA-256', new TextEncoder().encode(token)) : Promise.resolve(b64u(token))).then(function (raw) { return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']); });
+    return crypto.subtle.importKey('raw', new TextEncoder().encode(token + ':' + pin), 'PBKDF2', false, ['deriveKey']).then(function (k) {
+      return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: sal, iterations: 250000, hash: 'SHA-256' }, k, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    });
+  }
+  var CAB = null;
+  traer('v/' + carpeta + '/c.bin').then(function (b) {
+    CAB = b;
+    if (b[0] === 2) { $('cargando').hidden = true; $('pide-pin').hidden = false; $('pin').focus(); return; }
+    return abrir('').catch(function () { problema('No pudimos abrir tus documentos', 'El enlace parece incompleto. Ábrelo de nuevo desde el mensaje de tu asesor de Go Travel, sin cambiarle nada.'); });
+  }, function () { problema('No encontramos tus documentos', 'Puede que el enlace haya vencido o que estés sin conexión. Escríbele a tu asesor de Go Travel.'); });
+
+  $('pide-pin').addEventListener('submit', function (ev) {
+    ev.preventDefault(); var pin = $('pin').value.replace(/\D/g, '');
+    if (pin.length !== 4) { $('pin-error').textContent = 'El PIN tiene 4 números.'; return; }
+    $('pin-error').textContent = 'Revisando…';
+    abrir(pin).catch(function () { $('pin-error').textContent = 'Ese PIN no coincide. Revísalo e intenta de nuevo.'; $('pin').select(); });
+  });
+  $('pin').addEventListener('input', function () { this.value = this.value.replace(/\D/g, '').slice(0, 4); $('pin-error').textContent = ''; });
+
+  function abrir(pin) {
+    var conPin = CAB[0] === 2, sal = conPin ? CAB.slice(1, 17) : null, cuerpo = CAB;
+    if (conPin) { cuerpo = new Uint8Array(CAB.length - 16); cuerpo[0] = 1; cuerpo.set(CAB.slice(17), 1); }
+    return claveDe(pin, sal).then(function (k) { CLAVE = k; return descifrar(cuerpo, carpeta + '/c'); }).then(function (b) {
+      M = JSON.parse(new TextDecoder().decode(b));
+      var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+      var vence = /^(\d{4})-(\d{2})-(\d{2})$/.exec(M.vence || '');
+      if (vence && new Date(+vence[1], vence[2] - 1, +vence[3]) < hoy) { problema('Este enlace ya venció', 'Por tu seguridad, los documentos de viaje están disponibles hasta ' + fecha(M.vence) + '. Si los necesitas, escríbele a tu asesor de Go Travel.', 'reloj'); return; }
+      pintar();
+    });
+  }
+
+  function pintar() {
+    $('cargando').hidden = true; $('pide-pin').hidden = true;
+    $('titulo').textContent = M.titulo || 'Tu viaje'; $('fechas').textContent = rango(M.inicio, M.fin);
+    if (M.id) { $('cod').hidden = false; $('cod').textContent = M.id; }
+    document.title = (M.titulo || 'Documentos de viaje') + ' · Go Travel';
+    var html = '';
+    if (M.pasajeros || M.titular) html += '<div class="pax">' + ico('pasajeros') + '<div><small>Viajeros</small><b>' + esc(M.pasajeros || M.titular) + '</b></div></div>';
+    CATS.forEach(function (c) {
+      var its = (M.items || []).filter(function (x) { return (CAT[x.cat] ? x.cat : 'otros') === c[0]; });
+      if (!its.length) return;
+      html += '<h2>' + esc(c[1]) + '</h2>';
+      its.forEach(function (x) {
+        var chips = (x.datos || []).slice(0, 3).map(function (d) { return '<i>' + esc(d.v) + '</i>'; }).join('');
+        html += '<button type="button" class="tarjeta" data-id="' + esc(x.id) + '"><span class="t-ico">' + ico(c[2]) + '</span><span class="t-txt"><b>' + esc(x.titulo) + '</b>' + (x.sub ? '<span class="t-sub">' + esc(x.sub) + '</span>' : '') + (chips ? '<span class="t-chips">' + chips + '</span>' : '') + '</span><span class="t-ir">' + ico('chevron-derecha') + '</span></button>';
+      });
+    });
+    var tel = String((M.asesor && M.asesor.telefono) || '').replace(/[^\d]/g, '');
+    if (tel) html += '<a class="asesor" href="https://wa.me/' + (tel.length === 10 ? '57' + tel : tel) + '?text=' + encodeURIComponent('Hola, tengo una pregunta sobre mis documentos de viaje ' + (M.id || '') + '.') + '" target="_blank" rel="noopener">' + ico('chat') + '<span>Escríbele a ' + esc((M.asesor && M.asesor.nombre) || 'tu asesor') + '</span></a>';
+    html += '<p class="ayuda">Guarda este enlace. Después de abrirlo una vez con internet, tus documentos también se ven sin conexión.</p>';
+    $('contenido').innerHTML = html; $('contenido').hidden = false;
+    $('contenido').addEventListener('click', function (ev) { var t = ev.target.closest('.tarjeta'); if (t) verItem(t.dataset.id); });
+  }
+
+  // ── Ventana de un documento ──
+  var urls = [];
+  function cerrar() { $('vent').hidden = true; document.body.style.overflow = ''; urls.forEach(function (u) { URL.revokeObjectURL(u); }); urls = []; $('v-in').innerHTML = ''; if (location.hash.indexOf('~') > 0) history.back(); }
+  $('v-x').addEventListener('click', cerrar);
+  addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !$('vent').hidden) cerrar(); });
+  addEventListener('popstate', function () { if (!$('vent').hidden && location.hash.indexOf('~') < 0) { $('vent').hidden = true; document.body.style.overflow = ''; $('v-in').innerHTML = ''; } });
+
+  function verItem(id) {
+    var x = (M.items || []).filter(function (i) { return i.id === id; })[0]; if (!x) return;
+    $('v-t').textContent = x.titulo; $('vent').hidden = false; document.body.style.overflow = 'hidden'; $('v-cuerpo').scrollTop = 0;
+    history.pushState(null, '', location.href.split('~')[0] + '~' + id);
+    var h = '';
+    if (x.qr && window.qrcode) {
+      try { var q = qrcode(0, 'M'); q.addData(x.qr); q.make(); h += '<div class="qr">' + q.createSvgTag({ cellSize: 6, margin: 2, scalable: true }) + '<p>Muestra este código en la entrada. Sube el brillo de tu pantalla.</p></div>'; } catch (e) {}
+    }
+    var res = '';
+    if ((x.datos || []).length) res += '<dl class="datos">' + x.datos.map(function (d) { return '<div><dt>' + esc(d.k) + '</dt><dd>' + esc(d.v) + '</dd></div>'; }).join('') + '</dl>';
+    if ((x.ck || []).length) res += '<div class="cks">' + x.ck.map(function (c) { return '<a class="b-pri" href="' + esc(c.u) + '" rel="noopener">' + ico('avion') + '<span>Check-in ' + esc(c.n) + (c.v ? ' · ' + esc(c.v) : '') + '</span></a>'; }).join('') + '</div>';
+    if ((x.tels || []).length) res += '<div class="tels">' + x.tels.map(function (t) { var wa = /whats/i.test(t.k + ' ' + t.n), num = String(t.n).replace(/[^\d+]/g, ''); return '<a class="tel" href="' + (wa ? 'https://wa.me/' + num.replace(/\D/g, '') : 'tel:' + num) + '"' + (wa ? ' target="_blank" rel="noopener"' : '') + '><span>' + esc(t.k || 'Teléfono') + '</span><b>' + ico(wa ? 'chat' : 'telefono') + ' ' + esc(t.n) + '</b></a>'; }).join('') + '</div>';
+    if ((x.cob || []).length) res += '<table class="cob"><tbody>' + x.cob.map(function (c) { return '<tr><td>' + esc(c.k) + '</td><td>' + esc(c.v) + '</td></tr>'; }).join('') + '</tbody></table>';
+    if (x.instr) res += '<p class="instr">' + esc(x.instr) + '</p>';
+    if (res) h += '<div class="res"><h3>' + esc(x.sub || x.titulo) + '</h3>' + res + '</div>';
+    if (x.archivo) h += '<div id="doc-zona"><div class="aviso"><div class="giro" aria-hidden="true"></div><p style="margin-top:10px">Abriendo el documento…</p></div></div>';
+    $('v-in').innerHTML = h;
+    if (x.archivo) cargarArchivo(x);
+  }
+  function cargarArchivo(x) {
+    var a = x.archivo, n = a.partes || 1, ps = [];
+    for (var i = 0; i < n; i++) ps.push(traer('v/' + carpeta + '/' + x.id + (i ? '.' + i : '') + '.bin'));
+    Promise.all(ps).then(function (partes) {
+      var total = partes.reduce(function (s, p) { return s + p.length; }, 0), todo = new Uint8Array(total), o = 0;
+      partes.forEach(function (p) { todo.set(p, o); o += p.length; });
+      return descifrar(todo, carpeta + '/' + x.id);
+    }).then(function (bytes) {
+      var blob = new Blob([bytes], { type: a.mime || 'application/octet-stream' }), url = URL.createObjectURL(blob); urls.push(url);
+      var zona = $('doc-zona'); if (!zona) return;
+      var acc = '<div class="doc-acc"><a class="b-sec" href="' + url + '" download="' + esc(a.nombre || 'documento') + '">' + ico('descargar') + '<span>Descargar</span></a>' + (/pdf/.test(a.mime) ? '<a class="b-sec" href="' + url + '" target="_blank" rel="noopener">' + ico('compartir') + '<span>Abrir aparte</span></a>' : '') + '</div>';
+      if (/html/.test(a.mime)) { zona.innerHTML = acc + '<iframe class="marco" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" title="' + esc(x.titulo) + '" src="' + url + '"></iframe>'; return; }
+      if (/^image\//.test(a.mime)) { zona.innerHTML = acc + '<img class="hoja" alt="' + esc(x.titulo) + '" src="' + url + '">'; return; }
+      if (/pdf/.test(a.mime)) { zona.innerHTML = acc + '<div id="hojas"></div>'; return pintarPdf(bytes, $('hojas')); }
+      zona.innerHTML = acc;
+    }).catch(function () { var z = $('doc-zona'); if (z) z.innerHTML = '<div class="aviso"><h3>No pudimos abrir este documento</h3><p>Revisa tu conexión e intenta de nuevo. Si sigue igual, escríbele a tu asesor.</p></div>'; });
+  }
+  var pdfjsP = null;
+  function cargar(src) { return new Promise(function (ok, mal) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = mal; document.head.appendChild(s); }); }
+  function pdfjs() {
+    var base = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+    return pdfjsP || (pdfjsP = (window.pdfjsWorker ? Promise.resolve() : cargar(base + 'pdf.worker.min.js')).then(function () { return window.pdfjsLib ? null : cargar(base + 'pdf.min.js'); }).then(function () { pdfjsLib.GlobalWorkerOptions.workerSrc = base + 'pdf.worker.min.js'; return pdfjsLib; }).catch(function (e) { pdfjsP = null; throw e; }));
+  }
+  function pintarPdf(bytes, dest) {
+    return pdfjs().then(function (lib) { return lib.getDocument({ data: bytes, isEvalSupported: false }).promise; }).then(function (pdf) {
+      var ancho = Math.min(dest.clientWidth || 360, 720) * Math.min(window.devicePixelRatio || 1, 2), cadena = Promise.resolve();
+      for (var n = 1; n <= pdf.numPages; n++) (function (n) {
+        cadena = cadena.then(function () { return pdf.getPage(n); }).then(function (p) {
+          var v1 = p.getViewport({ scale: 1 }), vp = p.getViewport({ scale: ancho / v1.width }), c = document.createElement('canvas');
+          c.width = Math.round(vp.width); c.height = Math.round(vp.height); c.className = 'hoja'; dest.appendChild(c);
+          return p.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+        });
+      })(n);
+      return cadena;
+    });
+  }
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" async></script>
+</body></html>
