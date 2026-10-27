@@ -7,7 +7,7 @@ set -euo pipefail
 DIAS="${DIAS:-60}"
 SIMULAR="${SIMULAR:-false}"
 limite=$(( $(date +%s) - DIAS * 86400 ))
-fijos=" index.html sw.js checkin.html billetera.html "
+fijos=" index.html sw.js checkin.html billetera.html viaje.html "
 borrados=0
 
 ultima_fecha() { git log -1 --format=%ct -- "$1" 2>/dev/null || echo 0; }
